@@ -1,0 +1,150 @@
+﻿@{ Layout = null; }
+@model BorrowBook
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taşkışla Kütüphane</title>
+
+    <link rel="stylesheet" href="~/css/Home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon"
+          href="Icon-Symbol-Lock-Sign-Internet-Security-Blue-2430207.png" />
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,600,700,700i,900&subset=latin-ext"
+          rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <a class="navbar-login"
+               style="text-decoration: none"
+               asp-controller="Admins"
+               asp-action="Login"
+               method="post">
+                <div class="login-area"
+                     style="
+              float: right;
+              width: 147px;
+              height: 50px;
+              padding: 10px 0 0 0px;
+              color: black;
+            ">
+                    Yönetici Girişi
+                </div>
+            </a>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand"
+                   href="#"
+                   style="text-decoration: none; background-color: none">
+                    <div class="container-fluid" style="float: left">
+                        <img src="/image/amblem.png"
+                             class="d-inline-block align-text-top" />
+                    </div>
+                    <div class="container-fluid"
+                         style="
+                float: left;
+                width: 300px;
+                height: 120px;
+                padding: 27px 0 0 10px;
+                color: black;
+              ">
+                        <h1>TAŞKIŞLA KÜTÜPHANE</h1>
+                    </div>
+                </a>
+                <a class="container-fluid"
+                   asp-controller="Users"
+                   asp-action="Index"
+                   style="
+              float: right;
+              width: 117px;
+              height: 120px;
+              padding: 40px 0 0 0;
+              color: black;
+            ">
+                    <h4>Kullanıcı Ekle</h4>
+                </a>
+                <a class="container-fluid"
+                   asp-controller="BorrowBooks"
+                   asp-action="Index"
+                   style="
+              float: right;
+              width: 100px;
+              height: 120px;
+              padding: 40px 0 0 0;
+              color: black;
+            ">
+                    <h4>Kitap Kirala</h4>
+                </a>
+                <a class="container-fluid"
+                   asp-controller="Books"
+                   asp-action="Index"
+                   style="
+              float: right;
+              width: 100px;
+              height: 120px;
+              padding: 40px 0 0 0;
+              color: black;
+            ">
+                    <h4>Kitap Arama</h4>
+                </a>
+            </nav>
+            <div class="search-form">
+                <form action="/BorrowBooks/CreateReservation" method="post">
+                    @{ if (ViewBag.message != null)
+                        {
+                <div class="alert alert-danger">@ViewBag.message</div> } }
+                    <div class="custom-select" style="width: 395px; height: 93px;">
+                        <label class="form-label">Ad-Soyad</label>
+                        <select name="UserId" class="form-control" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+                            @foreach (var user in ViewBag.users)
+                            {
+                <option placeholder="Lütfen Ad-Soyad Giriniz" value="@user.Id">@user.FullName</option>
+}
+
+                        </select>
+                    </div>
+                    <div class="custom-select" style="width: 395px; height: 93px;">
+                        <label class="form-label">Kitap Adı</label>
+                        <select name="BookId" class="form-control" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+                            @foreach (var book in ViewBag.books)
+                            {
+                <option value="@book.Id">@book.Name</option>
+}
+
+                        </select>
+                    </div>
+                    <div class="mb-3" style="width: 395px; height: 93px;">
+                        <label class="form-label">Alınma Tarihi</label>
+                        <br />
+                        <input type="date" name="BorrowingDate" class="form-control" />
+                        <span asp-validation-for="@Model.BorrowingDate"
+                              class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-success col-md-3">
+                        Kayıt Ekle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

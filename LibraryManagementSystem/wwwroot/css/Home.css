@@ -1,0 +1,102 @@
+﻿body {
+    background-image: url("/image/ortabahce.jpg") !important;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-blend-mode: overlay;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    width: 1280px;
+    height: 92%;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+nav {
+    padding-top: 24px;
+    
+}
+
+h1 {
+    font-family: "Titillium Web", sans-serif;
+    
+}
+
+img {
+    height: 87px;
+    width: 66px;
+    opacity: 1;
+    margin-top: 22px;
+}
+
+.search-form {
+    width: 1015px;
+    height: 85%;
+    padding-left: 293px;
+    padding-top: 185px;
+}
+
+
+
+input {
+    position: absolute;
+    width: 516px;
+    height: 40px;
+    border: none;
+    font-family: "Titillium Web", sans-serif;
+    border-bottom: 0.5px solid;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: black;
+}
+
+    input:focus {
+        border: 0px;
+        outline: none;
+    }
+
+label {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 18px;
+}
+
+.content {
+    width: 1180px;
+    height: 611px;
+    padding-left: 90px;
+    border: 0.5px solid;
+}
+
+button {
+    width: 107px;
+    height: 35px;
+    border: none;
+    position: absolute;
+    top: 500px;
+    left: 796px;
+    font-family: "Titillium Web", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.results {
+    height: 150px;
+    width: 516px;
+    background-color: rgba(253, 252, 253, 0.5);
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 131px;
+    font-family: "Titillium Web", sans-serif;
+}
+
+nav {
+    padding-top: 24px;
+}

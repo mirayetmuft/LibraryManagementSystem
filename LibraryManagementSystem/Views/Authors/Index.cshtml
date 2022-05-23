@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Yazar Sayfası";
+}
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+<a class="btn btn-sm btn-primary text-light" asp-controller="Authors" asp-action="Add">Yazar Ekle</a>
+<div class="container">
+    <div class="content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Yazar Adı</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Author author in ViewBag.authors)
+                {
+                    <tr>
+                        <td >@author.FullName</td>
+                        <td>
+                            <a class="btn btn-link" href="/Authors/Update/@author.Id">Düzenle</a>
+                            <a class="btn btn-link" href="/Authors/Delete/@author.Id">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

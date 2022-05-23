@@ -1,0 +1,102 @@
+﻿
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taşkışla Kütüphane</title>
+
+    <link rel="stylesheet" href="~/css/Home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="Icon-Symbol-Lock-Sign-Internet-Security-Blue-2430207.png">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,600,700,700i,900&subset=latin-ext"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#" style="text-decoration: none; background-color:none;">
+                <div class="container-fluid" style="float:left;">
+                    <img src="/image/amblem.png" class="d-inline-block align-text-top">
+                </div>
+                <div class="container-fluid"
+                     style="float:left; width:300px; height: 120px; padding: 27px 0 0 10px; color: black;">
+                    <h1>TAŞKIŞLA KÜTÜPHANE</h1>
+                </div>
+            </a>
+            <a class="container-fluid" asp-area="" asp-controller="Users" asp-action="Index" style="float:right; width:100px; height: 120px; padding: 40px 0 0 0; color: black;">
+                <h4>Kullanıcılar</h4>
+            </a>
+            <a class="container-fluid" asp-area="" asp-controller="Books" asp-action="Index" style="float:right; width:100px; height: 120px; padding: 40px 0 0 0; color: black;">
+                <h4>Kitaplar</h4>
+            </a>
+            <a class="container-fluid" asp-area="" asp-controller="Authors" asp-action="Index" style="float:right; width:100px; height: 120px; padding: 40px 0 0 0; color: black;">
+                <h4>Yazarlar</h4>
+            </a>
+            <a class="container-fluid" asp-area="" asp-controller="Categories" asp-action="Index" style="float:right; width:100px; height: 120px; padding: 40px 0 0 0; color: black;">
+                <h4>Kategoriler</h4>
+            </a>
+        </nav>
+    </div>
+    @*<div class="container">
+        <div class="content">
+            <form action="/Books/Save" method="post">
+                @{
+                    if (ViewBag.message != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.message</div>
+                    }
+
+                    <div class="mb-3">
+                        <label class="form-label">Raf</label>
+                        <input type="text" name="Shelf" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">İsim</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yazar</label>
+                        <select name="AuthorId" class="form-control">
+                            @foreach (Author author in ViewBag.authors)
+                            {
+                                <option value="@author.Id">@author.FullName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select name="CategoryId" class="form-control">
+
+                            @foreach (Category category in ViewBag.categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sayfa</label>
+                        <input type="text" name="Page" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Durumu</label>
+                        <select name="Status" class="form-control">
+                            <option value="true">Rafta</option>
+                            <option value="false">Rezerve</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success  col-md-3">Kayıt Ekle</button>
+
+                }
+            </form>
+        </div>
+    </div>*@
+</body>
+
+</html>

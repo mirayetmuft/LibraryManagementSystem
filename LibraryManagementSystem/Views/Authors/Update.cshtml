@@ -1,0 +1,21 @@
+﻿@{ ViewData["Title"] = "Yazar Güncelleme"; }
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+
+        <form action="/Authors/Save" method="post">
+            @{ if (ViewBag.message != null)
+                {
+    <div class="alert alert-danger">@ViewBag.message</div> } }
+
+            <div class="mb-3">
+                <label class="form-label">Ad-Soyad</label>
+                <input type="text" name="Name" class="form-control" value="@ViewBag.author.FullName">
+            </div>
+            <input type="hidden" name="Id" value="@ViewBag.author.Id">
+            <button type="submit" class="btn btn-success  col-md-3">Güncelle</button>
+        </form>
+    </div>
+</div>

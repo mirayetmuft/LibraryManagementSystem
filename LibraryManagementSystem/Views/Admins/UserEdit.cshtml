@@ -1,0 +1,43 @@
+﻿@{ ViewData["Title"] = "Kullanıcı Güncelleme"; }
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+        <form action="/Users/Save" method="post">
+            @{ if (ViewBag.message != null)
+                {
+    <div class="alert alert-danger">@ViewBag.message</div> } }
+            <div class="mb-3">
+                <label class="form-label">Okul Numarası</label>
+                <input type="text" name="IdNumber" class="form-control" value="@ViewBag.user.IdNumber">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İsim</label>
+                <input type="text" name="Name" class="form-control" value="@ViewBag.user.Name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Soyisim</label>
+                <input type="text" name="Surname" class="form-control" value="@ViewBag.user.Surname">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fakülte</label>
+                <input type="text" name="Faculty" class="form-control" value="@ViewBag.user.Faculty">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Bölüm</label>
+                <input type="text" name="Department" class="form-control" value="@ViewBag.user.Department">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-mail</label>
+                <input type="text" name="Email" class="form-control" value="@ViewBag.user.Email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefon Numarası</label>
+                <input type="text" name="PhoneNumber" class="form-control" value="@ViewBag.user.PhoneNumber">
+            </div>
+            <input type="hidden" name="Id" value="@ViewBag.user.Id">
+            <button type="submit" class="btn btn-success  col-md-3">Güncelle</button>
+        </form>
+    </div>
+</div>

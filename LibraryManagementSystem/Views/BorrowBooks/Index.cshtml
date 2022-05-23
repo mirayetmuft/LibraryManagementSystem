@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Rezervasyon Sayfası";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+<a class="btn btn-sm btn-primary text-light" asp-controller="BorrowBooks" asp-action="CreateReservation">Rezervasyon Ekle</a>
+<div class="container">
+    <div class="content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Adı-Soyadı</th>
+                    <th>Kitap Adı</th>
+                    <th>Alındığı Tarih</th>
+                    <th>Dönüş Tarihi</th>
+                    <th>Geri Getirildiği Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BookUserBookBarrowVM book in ViewBag.borrowBooks)
+                {
+                    <tr>
+                        <td>@book.UserFullName</td>
+                        <td>@book.BookName</td>
+                        <td>@book.BorrowingDate</td>
+                        <td>@book.DateToBeReturned</td>
+                        <td>@book.ReturnDate</td>
+                        <td>
+                            <a class="btn btn-link" href="/BorrowBooks/UpdateReservation/@book.Id">Rezervasyonu Düzenle</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

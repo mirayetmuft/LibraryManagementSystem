@@ -1,0 +1,58 @@
+﻿@{ Layout = null; }
+@model BorrowBook
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+        <div class="search-form">
+            <form action="/BorrowBooks/CreateReservation" method="post">
+                @{ if (ViewBag.message != null)
+                    {
+        <div class="alert alert-danger">@ViewBag.message</div> } }
+                <div class="custom-select" style="width: 395px; height: 93px;">
+                    <label class="form-label">Ad-Soyad</label>
+                    <select name="UserId" class="form-control" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+                        @foreach (var user in ViewBag.users)
+                        {
+            <option placeholder="Lütfen Ad-Soyad Giriniz" value="@user.Id">@user.FullName</option>}
+
+                    </select>
+                </div>
+                <div class="custom-select" style="width: 395px; height: 93px;">
+                    <label class="form-label">Kitap Adı</label>
+                    <select name="BookId" class="form-control" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+                        @foreach (var book in ViewBag.books)
+                        {
+            <option value="@book.Id">@book.Name</option>}
+
+                    </select>
+                </div>
+                <div class="mb-3" style="width: 395px; height: 93px;">
+                    <label class="form-label">Alınma Tarihi</label>
+                    <br />
+                    <input type="date" name="BorrowingDate" class="form-control" />
+                    <span asp-validation-for="@Model.BorrowingDate"
+                          class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-success col-md-3">
+                    Kayıt Ekle
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

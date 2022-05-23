@@ -1,0 +1,28 @@
+﻿@{ ViewData["Title"] = "Kategori Güncelleme"; }
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+
+        <form action="/Categories/Save" method="post">
+            @{ if (ViewBag.message != null)
+                {
+    <div class="alert alert-danger">@ViewBag.message</div> } }
+
+            <div class="mb-3">
+                <label class="form-label">İsim</label>
+                <input type="text" name="Name" class="form-control" value="@ViewBag.category.Name" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+            </div>
+            <input type="hidden" name="Id" value="@ViewBag.category.Id">
+            <button type="submit" class="btn btn-success  col-md-3">Güncelle</button>
+        </form>
+    </div>
+</div>

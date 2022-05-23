@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Kitap Sayfası";
+}
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+@using (Html.BeginForm())
+{
+    <p>
+        Aranacak kelime:@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<div class="container">
+    <div class="content">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Raf</th>
+                    <th>Kitap Adı</th>
+                    <th>Sayfa Sayısı</th>
+                    <th>Durumu</th>
+                    <th>Düzenle</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Book book in ViewBag.books)
+                {
+                <tr>
+                    <td>@book.Shelf</td>
+                    <td>@book.Name</td>
+                    <td>@book.Page</td>
+                    <td>@book.Status</td>
+                    <td>
+                        <a class="btn btn-link" href="/Books/Update/@book.Id">Kitabı Düzenle</a>
+                        <a class="btn btn-link" href="/Books/Delete/@book.Id">Kitabı Sil</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Kategori Sayfası";
+}
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+<a class="btn btn-sm btn-primary text-light" asp-controller="Categories" asp-action="Add">Kategori Ekle</a>
+<div class="container">
+    <div class="content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategori Adı</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category category in ViewBag.categories)
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>
+                            <a class="btn btn-link" href="/Categories/Update/@category.Id">Kategori Düzenle</a>
+                            <a class="btn btn-link" href="/Categories/Delete/@category.Id">Kategori Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@{ ViewData["Title"] = "Kitap Güncelleme"; }
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+
+        <form action="/Books/Save" method="post">
+            @{ if (ViewBag.message != null)
+                {
+    <div class="alert alert-danger">@ViewBag.message</div> } }
+
+            <div class="mb-3">
+                <label class="form-label">İsim</label>
+                <input type="text" name="Name" class="form-control" value="@ViewBag.book.Name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Yazar</label>
+                <select name="AuthorId" class="form-control">
+                    @foreach (Author author in ViewBag.authors)
+                    {
+        <option value="@author.Id">@author.FullName</option>
+}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Kategori</label>
+                <select name="CategoryId" class="form-control">
+                    @foreach (Category category in ViewBag.categories)
+                    {
+        <option value="@category.Id">@category.Name</option>}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Raf</label>
+                <input type="text" name="Shelf" class="form-control" value="@ViewBag.book.Shelf">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Durum</label>
+                <select name="Status" class="form-control">
+                    <option>Rafta</option>
+                    <option>Rezerve</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Sayfa</label>
+                <input type="text" name="Page" class="form-control" value="@ViewBag.book.Page">
+            </div>
+            <input type="hidden" name="Id" value="@ViewBag.user.Id">
+            <button type="submit" class="btn btn-success  col-md-3">Güncelle</button>
+        </form>
+    </div>
+</div>

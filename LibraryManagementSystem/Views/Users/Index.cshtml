@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Kullanıcı Sayfası";
+}
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+<a class="btn btn-sm btn-primary text-light" asp-controller="Users" asp-action="Add">Kullanıcı Ekle</a>
+<div class="container">
+    <div class="content">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Okul Numarası</th>
+                    <th>Ad-Soyad</th>
+                    <th>Telefon</th>
+                    <th>E-mail</th>
+                    <th>Adres</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (User user in ViewBag.users)
+                {
+                    <tr>
+                        <td>@user.IdNumber</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Faculty</td>
+                        <td>@user.Department</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

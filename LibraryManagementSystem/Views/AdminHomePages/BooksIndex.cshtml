@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Kitap Sayfası";
+}
+<head>
+    <link rel="stylesheet" href="~/css/OnlyIndex.css" />
+</head>
+<a class="btn btn-sm btn-primary text-light" asp-controller="Books" asp-action="Add">Kitap Ekle</a>
+<div class="container">
+    <div class="content">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Raf</th>
+                    <th>Kitap Adı</th>
+                    <th>Yazarı</th>
+                    <th>Kategorisi</th>
+                    <th>Sayfa Sayısı</th>
+                    <th>Durumu</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BookVM book in ViewBag.books)
+                {
+                    <tr>
+                        <td>@book.Shelf</td>
+                        <td>@book.Name</td>
+                        <td>@book.AuthorName</td>
+                        <td>@book.CategoryName</td>
+                        <td>@book.Page</td>
+                        <td>@book.Status</td>
+                        <td>
+                            <a class="btn btn-link" href="/Books/Update/@book.Id">Kitabı Düzenle</a>
+                            <a class="btn btn-link" href="/Books/Delete/@book.Id">Kitabı Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

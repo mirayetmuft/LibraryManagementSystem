@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Rezervasyon Güncelle ";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Pages.css" />
+</head>
+<div class="container">
+    <div class="content">
+        <div class="context">
+            <form action="/BorrowBooks/Index" method="post">
+                @{
+                    if (ViewBag.message != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.message</div>
+                    }
+                    <div class="mb-3">
+                        <label class="form-label">Geri Getirilme Tarihi</label>
+                        <input type="date" name="ReturnDate" class="form-control" style="width: 516px;
+              height: 40px;
+              border: none;
+              border-bottom: 0.5px solid;
+              font-weight: 500;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.25);
+              color: black;">
+                    </div>
+                    <input type="hidden" name="Id" value="@ViewBag.borrowBooks.Id">
+                    <button type="submit" class="btn btn-success  col-md-3">Rezervasyon Güncelle</button>
+                }
+            </form>
+        </div>
+        
+    </div>
+</div>

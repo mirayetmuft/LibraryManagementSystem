@@ -1,0 +1,43 @@
+﻿body {
+    background-image: url("/image/ortabahce.jpg") !important;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-blend-mode: overlay;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+img {
+    height: 87px;
+    width: 66px;
+    opacity: 1;
+    margin-top: 22px;
+}
+.container {
+    width: 1280px;
+    height: 92%;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.content {
+    width: 1180px;
+    height: 611px;
+    border-top: 0.5px solid;
+    border-left: 0.5px solid;
+    border-right: 0.5px solid;
+    /*padding-left: 357px;
+    padding-top: 192px;*/
+}
+input {
+    width: 516px; 
+    height: 40px;
+    border: none;
+    border-bottom: 0.5px solid;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: black;
+}
